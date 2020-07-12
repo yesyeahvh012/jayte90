@@ -16,13 +16,21 @@ Bước 3 : Điền các thông tin và chọn cấu hình cho VPS :
 - Vm Name : Đánh tên VPS mà bạn muốn đặt.
 - Window OS Version : Chọn bản Window Server Smalldisk bạn muốn cài đặt.
 -Vm Size : Chọn cấu hình cho VPS cần tạo, thông tin cấu hình xem bảng bên dưới :
+
 Instance	     vCPU(s)        RAM     Temporary Disk       Price / Hour
+
 B1S	             1	         1 GiB	     4 GiB	            $0.0104/hour
+
 B1MS	           1	         2 GiB	     4 GiB	            $0.0207/hour
+
 B2S	             2	         4 GiB	     8 GiB	            $0.0416/hour
+
 B2MS	           2	         8 GiB	     16 GiB	            $0.0832/hour
+
 B4MS             4	         16 GiB	     32 GiB	            $0.166/hour
+
 B8MS	           8	         32 GiB	     64 GiB	            $0.333/hour
+
 - Location : Dòng này để nguyên không cần điền gì vào hết nhé.
 Sau khi điền và chọn các option xong xuôi thì các bạn bấm tích chọn "I agree to the terms and conditions stated above"
 và bấm Purchase để tiến hành tạo VPS.
