@@ -16,8 +16,15 @@
         },
         "dnsLabelPrefix": {
             "type": "String",
+            "defaultValue": "[concat('vm', uniqueString(resourceGroup().id))]",
             "metadata": {
-                "description": "Đánh bừa vào 1 đoạn gồm chữ hoặc số, càng dài càng tốt :))."
+                "description": "Dòng này để nguyên không cần gõ gì hết :D."
+            }
+        },
+        "vmName": {
+            "type": "String",
+            "metadata": {
+                "description": "Đánh tên VPS mà bạn muốn đặt."
             }
         },
         "windowsOSVersion": {
@@ -41,7 +48,8 @@
                 "Standard_B1ms",
                 "Standard_B2s",
                 "Standard_B2ms",
-                "Standard_B4ms"
+                "Standard_B4ms",
+                "Standard_B8ms"				
             ],
             "type": "String",
             "metadata": {
@@ -52,18 +60,18 @@
             "defaultValue": "[resourceGroup().location]",
             "type": "String",
             "metadata": {
-                "description": "Location for all resources."
+                "description": "Dòng này để nguyên không cần gõ gì hết :D."
             }
         }
     },
     "variables": {
-        "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'sawinvm')]",
+        "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'vm')]",
         "nicName": "myVMNic",
         "addressPrefix": "10.0.0.0/16",
         "subnetName": "Subnet",
         "subnetPrefix": "10.0.0.0/24",
         "publicIPAddressName": "myPublicIP",
-        "vmName": "SimpleWinVM",
+        "vmName": "[parameters('vmName')]",
         "virtualNetworkName": "MyVNET",
         "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('subnetName'))]",
         "networkSecurityGroupName": "default-NSG"
