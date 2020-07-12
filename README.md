@@ -1,5 +1,6 @@
 # jayte90
 Hướng dẫn cách tạo VPS trên Azure với ổ cứng thấp (Smalldisk) nhanh và đơn giản nhằm tiết kiệm chi phí sử dụng VPS.
+
 Bước 1 : Đăng nhập vào tài khoản Azure tại : https://portal.azure.com
 Bước 2 : Truy cập vào đường dẫn : https://tinyurl.com/jayte90 để vào trang tạo VPS của Azure
 Bước 3 : Điền các thông tin và chọn cấu hình cho VPS :
