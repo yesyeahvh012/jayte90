@@ -28,7 +28,7 @@
             }
         },
         "windowsOSVersion": {
-            "defaultValue": "2012-Datacenter-smalldisk",
+            "defaultValue": "2012-R2-Datacenter-smalldisk",
             "allowedValues": [
                 "2008-R2-SP1-smalldisk",
                 "2012-Datacenter-smalldisk",
@@ -49,7 +49,8 @@
                 "Standard_B2s",
                 "Standard_B2ms",
                 "Standard_B4ms",
-                "Standard_B8ms"				
+                "Standard_B8ms",
+	            "Standard_NC6_Promo"			
             ],
             "type": "String",
             "metadata": {
@@ -178,7 +179,7 @@
         },
         {
             "type": "Microsoft.Compute/virtualMachines",
-            "apiVersion": "2018-10-01",
+            "apiVersion": "2019-07-01",
             "name": "[variables('vmName')]",
             "location": "[parameters('location')]",
             "dependsOn": [
@@ -195,22 +196,18 @@
                     "adminPassword": "[parameters('adminPassword')]"
                 },
                 "storageProfile": {
+                    "osDisk": {
+                        "createOption": "fromImage",
+                        "managedDisk": {
+                            "storageAccountType": "Premium_LRS"
+                        }
+                    },
                     "imageReference": {
                         "publisher": "MicrosoftWindowsServer",
                         "offer": "WindowsServer",
                         "sku": "[parameters('windowsOSVersion')]",
                         "version": "latest"
-                    },
-                    "osDisk": {
-                        "createOption": "FromImage"
-                    },
-                    "dataDisks": [
-                        {
-                            "diskSizeGB": 1,
-                            "lun": 0,
-                            "createOption": "Empty"
-                        }
-                    ]
+                    }
                 },
                 "networkProfile": {
                     "networkInterfaces": [
@@ -219,6 +216,7 @@
                         }
                     ]
                 },
+                "licenseType": "Windows_Server",				
                 "diagnosticsProfile": {
                     "bootDiagnostics": {
                         "enabled": true,
